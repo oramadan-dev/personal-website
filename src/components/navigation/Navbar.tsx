@@ -5,15 +5,15 @@ import {
     Typography,
     Box,
 } from "@mui/material";
-
-export const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-    });
-};
+import {useLenis} from "../../context/LenisContext";
 
 export default function Navbar() {
+
+    const lenisRef = useLenis();
+    const scrollTo = (id: string) => {
+        lenisRef.current?.scrollTo(`#${id}`);
+    };
+
     return (
         <AppBar position="sticky" elevation={0} sx={{ borderBottom: 'none', bgcolor: 'background.paper' }}>
             <Toolbar>

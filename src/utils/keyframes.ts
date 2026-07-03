@@ -1,0 +1,13 @@
+import { keyframes } from "@mui/material";
+
+export const bounce = keyframes`
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+`;

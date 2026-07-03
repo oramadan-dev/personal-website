@@ -1,10 +1,7 @@
-import { RefObject, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Box } from "@mui/material";
 import { Position } from "../../types/Position";
-
-export interface ParticleBackgroundProps {
-    scrollRef: RefObject<HTMLDivElement | null>;
-}
+import { useScrollRef } from "../../context/ScrollContext";
 
 interface Particle {
     x: number,
@@ -22,10 +19,9 @@ interface Particle {
     vOpacity: number;
 }
 
-export default function ParticleBackground({
-  scrollRef,
-}: ParticleBackgroundProps) {
+export default function ParticleBackground() {
 
+    const scrollRef = useScrollRef();
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     // Particle Generation
@@ -35,7 +31,7 @@ export default function ParticleBackground({
     const numSafeParticles = 15;
 
     // Particle Sparkle
-    const opacityRate = 0.0025;
+    const opacityRate = 0.0035;
 
     // Particle Movement
     const movementThreshold = 150;
@@ -60,16 +56,21 @@ export default function ParticleBackground({
         const mouse: Position = { x: 0, y: 0 }
         const handleMouseMove = (e: MouseEvent) => {
             mouse.x = e.clientX;
-            mouse.y = e.clientY;
+            mouse.y = e.clientY + scrollY;
         }
+
+        let scrollY = 0;
+        const handleScroll = () => {
+            scrollY = scrollRef.current?.scrollTop ?? 0;
+        };
 
         // Initial logic to create particles
         const particles: Particle[] = [];
         const safeZone = {
-            left: canvas.width * 0.3,
-            right: canvas.width * 0.7,
-            top: canvas.height * 0.35,
-            bottom: canvas.height * 0.65,
+            left: boardWidth * 0.3,
+            right: boardWidth * 0.7,
+            top: boardHeight * 0.35,
+            bottom: boardHeight * 0.65,
         };
         const createParticles = () => {
             particles.length = 0;
@@ -130,12 +131,23 @@ export default function ParticleBackground({
             ctx.fillStyle = "#ffffff";
 
             for (const particle of particles) {
-                // Only draw particles in current canvas
+                if (particle.y < scrollY - particle.radius) {
+                    particle.y += boardHeight;
+                    particle.homeY += boardHeight;
+                }
+
+                if (particle.y > scrollY + canvas.height + particle.radius) {
+                    particle.y -= boardHeight;
+                    particle.homeY -= boardHeight;
+                }
+
+                const screenY = particle.y - scrollY;
+
                 if (
                     particle.x + particle.radius < 0 ||
                     particle.x - particle.radius > canvas.width ||
-                    particle.y + particle.radius < 0 ||
-                    particle.y - particle.radius > canvas.height
+                    screenY + particle.radius < 0 ||
+                    screenY - particle.radius > canvas.height
                 ) {
                     continue;
                 }
@@ -143,7 +155,7 @@ export default function ParticleBackground({
                 ctx.beginPath();
                 ctx.arc(
                     particle.x,
-                    particle.y,
+                    screenY,
                     particle.radius,
                     0,
                     Math.PI * 2
@@ -210,16 +222,19 @@ export default function ParticleBackground({
 
         // Draw on initial mount and add resize handler
         handleResize();
+        handleScroll();
         createParticles()
         animate();
 
         window.addEventListener('resize', handleResize);
         window.addEventListener("mousemove", handleMouseMove);
+        scrollRef.current?.addEventListener("scroll", handleScroll);
 
         return () => {
             cancelAnimationFrame(animationId);
             window.removeEventListener("resize", handleResize);
             window.removeEventListener("mousemove", handleMouseMove);
+            scrollRef.current?.removeEventListener("scroll", handleScroll);
         };
     }, [scrollRef]);
 
