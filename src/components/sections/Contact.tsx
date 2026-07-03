@@ -1,5 +1,5 @@
 import Section from "./Section";
-import {Box, SxProps, Typography} from "@mui/material";
+import { Box, SxProps, Typography } from "@mui/material";
 
 export interface ContactProps {
     sx?: SxProps

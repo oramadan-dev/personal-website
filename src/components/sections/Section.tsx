@@ -3,8 +3,7 @@ import { Box, type SxProps } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import { useSectionFade } from "../../hooks/useSectionFade";
-import { useScrollRef } from "../../context/ScrollContext";
-import { useLenis } from "../../context/LenisContext";
+import { useScrollRef, useLenis } from "../../context";
 import { bounce } from "../../utils/keyframes";
 
 interface SectionProps {

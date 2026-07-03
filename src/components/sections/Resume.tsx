@@ -1,5 +1,5 @@
 import Section from "./Section";
-import {Box, Typography} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export default function Resume() {
 

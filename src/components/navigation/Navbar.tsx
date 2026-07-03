@@ -5,7 +5,7 @@ import {
     Typography,
     Box,
 } from "@mui/material";
-import {useLenis} from "../../context/LenisContext";
+import { useLenis } from "../../context";
 
 export default function Navbar() {
 

@@ -7,8 +7,7 @@ import {
     Resume,
     Contact,
 } from "./components/sections";
-import { ScrollContext } from "./context/ScrollContext";
-import { LenisContext } from "./context/LenisContext";
+import { ScrollContext, LenisContext } from "./context";
 
 import { Box } from "@mui/material";
 import { useEffect, useRef } from "react";

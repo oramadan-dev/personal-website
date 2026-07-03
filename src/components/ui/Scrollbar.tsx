@@ -1,5 +1,5 @@
 import { RefObject, useEffect, useState } from "react";
-import {Box} from "@mui/material";
+import { Box } from "@mui/material";
 
 export interface CustomScrollbarProps {
     scrollRef: RefObject<HTMLDivElement | null>;

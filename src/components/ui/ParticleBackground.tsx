@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Box } from "@mui/material";
 import { Position } from "../../types/Position";
-import { useScrollRef } from "../../context/ScrollContext";
+import { useScrollRef } from "../../context";
 
 interface Particle {
     x: number,
