@@ -5,6 +5,8 @@ export default function Education() {
     return (
         <Section id="education">
 
+            Education
+
         </Section>
     );
 

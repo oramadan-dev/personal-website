@@ -5,6 +5,8 @@ export default function Resume() {
     return (
         <Section id="resume">
 
+            Resume
+
         </Section>
     );
 

@@ -15,34 +15,34 @@ const scrollTo = (id) => {
 
 export default function Navbar() {
     return (
-        <AppBar position="fixed">
+        <AppBar position="sticky" elevation={0} sx={{ borderBottom: 'none', bgcolor: 'background.paper' }}>
             <Toolbar>
-                <Typography variant="h6" sx={{ flexGrow: 1 }}>
-                    Omar Ramadan
+                <Typography variant="h6" sx={{ flexGrow: 1, color: "white" }}>
+                    Omar Ramadan | Portfolio
                 </Typography>
 
                 <Box>
-                    <Button color="inherit" onClick={() => scrollTo("home")}>
+                    <Button onClick={() => scrollTo("home")}>
                         Home
                     </Button>
 
-                    <Button color="inherit" onClick={() => scrollTo("about")}>
+                    <Button onClick={() => scrollTo("about")}>
                         About
                     </Button>
 
-                    <Button color="inherit" onClick={() => scrollTo("education")}>
+                    <Button onClick={() => scrollTo("education")}>
                         Education
                     </Button>
 
-                    <Button color="inherit" onClick={() => scrollTo("skills")}>
+                    <Button onClick={() => scrollTo("skills")}>
                         Skills
                     </Button>
 
-                    <Button color="inherit" onClick={() => scrollTo("resume")}>
+                    <Button onClick={() => scrollTo("resume")}>
                         Resume
                     </Button>
 
-                    <Button color="inherit" onClick={() => scrollTo("contact")}>
+                    <Button onClick={() => scrollTo("contact")}>
                         Contact
                     </Button>
                 </Box>

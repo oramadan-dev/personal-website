@@ -1,23 +1,36 @@
-import { Box } from "@mui/material";
+import {Box, SxProps} from "@mui/material";
 import type { ReactNode } from "react";
 
 interface SectionProps {
     id: string;
     children?: ReactNode;
+    sx?: SxProps;
 }
 
-export default function Section({ id, children }: SectionProps) {
+export default function Section({ id, children, sx }: SectionProps) {
     return (
         <Box
             id={id}
             component="section"
-            sx={{
-                minHeight: "100vh",
-                py: 8,
-                scrollMarginTop: "64px",
-            }}
+            sx={[
+                {
+                    scrollMarginTop: "64px",
+                    minHeight: "100vh",
+                    height: "100vh",
+
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                },
+                ...(Array.isArray(sx) ? sx : sx ? [sx] : []),
+            ]}
         >
-            {children}
+
+            <Box sx={{ transform: "translateY(-150px)" }}>
+                {children}
+            </Box>
+
         </Box>
     );
 }

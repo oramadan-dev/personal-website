@@ -104,6 +104,11 @@ const theme = createTheme({
 
                 body: {
                     backgroundColor: "#0F1117",
+
+                    userSelect: "none",
+                    WebkitUserSelect: "none",
+                    MozUserSelect: "none",
+                    msUserSelect: "none",
                 },
 
                 "*::-webkit-scrollbar": {
@@ -122,6 +127,15 @@ const theme = createTheme({
                 "::selection": {
                     background: "#8B5CF644",
                 },
+
+                "*": {
+                    cursor: "none !important",
+
+                    userSelect: "none",
+                    WebkitUserSelect: "none",
+                    MozUserSelect: "none",
+                    msUserSelect: "none",
+                }
             },
         },
 
@@ -155,6 +169,17 @@ const theme = createTheme({
             },
 
             styleOverrides: {
+                root: {
+                    color: "#8e83a5",
+                    transition: "color 0.2s ease, transform 0.2s ease",
+
+                    "&:hover": {
+                        color: "#fff",
+                        backgroundColor: "transparent",
+                        transform: "scale(1.2)",
+                    },
+                },
+
                 contained: {
                     borderRadius: 10,
                     paddingInline: 24,
@@ -177,6 +202,81 @@ const theme = createTheme({
                 },
             },
         },
+
+        MuiTypography: {
+            styleOverrides: {
+                root: {
+                    transition: "color 0.2s ease, transform 0.2s ease",
+                },
+
+                h1: {
+                    transformOrigin: "left center",
+                    transition: "transform 0.2s ease, color 0.2s ease",
+                    color: "#7237ed",
+
+                    "&:hover": {
+                        color: "#9c6bff",
+                        transform: "scale(1.05)",
+                    },
+                },
+
+                h2: {
+                    transformOrigin: "left center",
+                    transition: "transform 0.2s ease, color 0.2s ease",
+                    color: "#7237ed",
+
+                    "&:hover": {
+                        color: "#9c6bff",
+                        transform: "scale(1.05)",
+                    },
+                },
+
+                h3: {
+                    transformOrigin: "left center",
+                    transition: "transform 0.2s ease, color 0.2s ease",
+                    color: "#7237ed",
+
+                    "&:hover": {
+                        color: "#9c6bff",
+                        transform: "scale(1.05)",
+                    },
+                },
+
+                h4: {
+                    transformOrigin: "left center",
+                    transition: "transform 0.2s ease, color 0.2s ease",
+                    color: "#7237ed",
+
+                    "&:hover": {
+                        color: "#9c6bff",
+                        transform: "scale(1.05)",
+                    },
+                },
+
+                h5: {
+                    transformOrigin: "left center",
+                    transition: "transform 0.2s ease, color 0.2s ease",
+                    color: "#7237ed",
+
+                    "&:hover": {
+                        color: "#9c6bff",
+                        transform: "scale(1.05)",
+                    },
+                },
+
+                h6: {
+                    transformOrigin: "left center",
+                    transition: "transform 0.2s ease, color 0.2s ease",
+                    color: "#7237ed",
+
+                    "&:hover": {
+                        color: "#9c6bff",
+                        transform: "scale(1.05)",
+                    },
+                },
+            },
+        },
+
     },
 });
 
