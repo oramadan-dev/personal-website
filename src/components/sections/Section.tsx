@@ -27,7 +27,7 @@ export default function Section({ id, children, sx }: SectionProps) {
             ]}
         >
 
-            <Box sx={{ transform: "translateY(-150px)" }}>
+            <Box sx={{ transform: "translateY(-75px)" }}>
                 {children}
             </Box>
 

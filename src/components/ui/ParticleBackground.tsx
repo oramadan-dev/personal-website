@@ -17,6 +17,9 @@ interface Particle {
     vy: number
 
     radius: number;
+
+    opacity: number
+    vOpacity: number;
 }
 
 export default function ParticleBackground({
@@ -24,6 +27,21 @@ export default function ParticleBackground({
 }: ParticleBackgroundProps) {
 
     const canvasRef = useRef<HTMLCanvasElement>(null);
+
+    // Particle Generation
+    const boardWidth = 7860;
+    const boardHeight = 4320;
+    const numParticles = 2000;
+    const numSafeParticles = 15;
+
+    // Particle Sparkle
+    const opacityRate = 0.0025;
+
+    // Particle Movement
+    const movementThreshold = 150;
+    const springStrength = 0.001;
+    const friction = 0.925;
+    const forceMultiplier = 1.2;
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -50,18 +68,18 @@ export default function ParticleBackground({
         const safeZone = {
             left: canvas.width * 0.3,
             right: canvas.width * 0.7,
-            top: canvas.height * 0.25,
+            top: canvas.height * 0.35,
             bottom: canvas.height * 0.65,
         };
         const createParticles = () => {
             particles.length = 0;
 
-            for (let i = 0; i < 2000; i++) {
+            for (let i = 0; i < numParticles; i++) {
                 let x, y;
 
                 do {
-                    x = Math.random() * 7860;
-                    y = Math.random() * 4320;
+                    x = Math.random() * boardWidth;
+                    y = Math.random() * boardHeight;
                 } while (
                     x > safeZone.left &&
                     x < safeZone.right &&
@@ -76,9 +94,33 @@ export default function ParticleBackground({
                     homeY: y,
                     vx: 0,
                     vy: 0,
-                    radius: Math.random() * 2 + 1
+                    radius: Math.random() * 2 + 1,
+                    opacity: Math.random(),
+                    vOpacity: (Math.random() >= 0.5) ? -opacityRate : opacityRate
                 })
             }
+
+            for (let i = 0; i < numSafeParticles; i++) {
+                const x =
+                    safeZone.left + Math.random() * (safeZone.right - safeZone.left);
+                const y =
+                    safeZone.top + Math.random() * (safeZone.bottom - safeZone.top);
+
+                const opacity = 0.05 + Math.random() * 0.15;
+
+                particles.push({
+                    x,
+                    y,
+                    homeX: x,
+                    homeY: y,
+                    vx: 0,
+                    vy: 0,
+                    radius: Math.random() * 1.5 + 0.5,
+                    opacity,
+                    vOpacity: (Math.random() < 0.5 ? -1 : 1) * opacityRate * 0.3,
+                });
+            }
+
         }
 
         // Frame drawing logic
@@ -106,24 +148,25 @@ export default function ParticleBackground({
                     0,
                     Math.PI * 2
                 );
+                ctx.globalAlpha = particle.opacity;
                 ctx.fill();
             }
+
+            ctx.globalAlpha = 1;
+
         };
 
-        const springStrength = 0.001;
-        const friction = 0.925;
-        const forceMultiplier = 1.2;
         const updateParticles = () => {
             for (const particle of particles) {
                 const dx = particle.x - mouse.x;
                 const dy = particle.y - mouse.y;
 
                 const distance = Math.sqrt(dx * dx + dy * dy);
-                if (distance < 150) {
+                if (distance < movementThreshold) {
                     const unitX = dx / distance;
                     const unitY = dy / distance;
 
-                    const force = (150 - distance) / 150;
+                    const force = (movementThreshold - distance) / movementThreshold;
 
                     particle.vx += unitX * force * forceMultiplier;
                     particle.vy += unitY * force * forceMultiplier;
@@ -140,6 +183,19 @@ export default function ParticleBackground({
                 // Move particle based on velocity
                 particle.x += particle.vx;
                 particle.y += particle.vy;
+
+                // Update particle opacity
+                if (particle.opacity >= 1) {
+                    particle.opacity = 1;
+                    particle.vOpacity *= -1;
+                }
+
+                if (particle.opacity <= 0.2) {
+                    particle.opacity = 0.2;
+                    particle.vOpacity *= -1;
+                }
+
+                particle.opacity += particle.vOpacity;
 
             }
         }
