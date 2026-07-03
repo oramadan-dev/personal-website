@@ -210,6 +210,10 @@ const theme = createTheme({
                 },
 
                 h1: {
+                    fontSize: "5.5rem",
+                    fontWeight: 700,
+                    letterSpacing: "-0.05em",
+
                     transformOrigin: "left center",
                     transition: "transform 0.2s ease, color 0.2s ease",
                     color: "#7237ed",
@@ -221,6 +225,9 @@ const theme = createTheme({
                 },
 
                 h2: {
+                    fontSize: "3.5rem",
+                    fontWeight: 700,
+
                     transformOrigin: "left center",
                     transition: "transform 0.2s ease, color 0.2s ease",
                     color: "#7237ed",
@@ -232,6 +239,9 @@ const theme = createTheme({
                 },
 
                 h3: {
+                    fontSize: "2.75rem",
+                    fontWeight: 600,
+
                     transformOrigin: "left center",
                     transition: "transform 0.2s ease, color 0.2s ease",
                     color: "#7237ed",
@@ -243,6 +253,9 @@ const theme = createTheme({
                 },
 
                 h4: {
+                    fontSize: "2.1rem",
+                    fontWeight: 600,
+
                     transformOrigin: "left center",
                     transition: "transform 0.2s ease, color 0.2s ease",
                     color: "#7237ed",
@@ -254,6 +267,9 @@ const theme = createTheme({
                 },
 
                 h5: {
+                    fontSize: "1.6rem",
+                    fontWeight: 600,
+
                     transformOrigin: "left center",
                     transition: "transform 0.2s ease, color 0.2s ease",
                     color: "#7237ed",
@@ -265,6 +281,9 @@ const theme = createTheme({
                 },
 
                 h6: {
+                    fontSize: "1.3rem",
+                    fontWeight: 500,
+
                     transformOrigin: "left center",
                     transition: "transform 0.2s ease, color 0.2s ease",
                     color: "#7237ed",
@@ -274,6 +293,18 @@ const theme = createTheme({
                         transform: "scale(1.05)",
                     },
                 },
+
+                body1: {
+                    fontSize: "1.25rem",
+                    lineHeight: 1.8,
+                },
+
+                body2: {
+                    fontSize: "1.125rem",
+                    lineHeight: 1.7,
+                    color: "#9CA3AF",
+                },
+
             },
         },
 

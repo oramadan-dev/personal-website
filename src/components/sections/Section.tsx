@@ -60,7 +60,9 @@ export default function Section({
 
                 {nextSectionId && (
                     <KeyboardArrowDownIcon
-                        onClick={() => lenisRef.current?.scrollTo(`#${nextSectionId}`)}
+                        onClick={() => lenisRef.current?.scrollTo(`#${nextSectionId}`, {
+                            offset: -window.innerHeight * 0.075,
+                        })}
                         sx={{
                             mt: 8,
                             fontSize: 75,

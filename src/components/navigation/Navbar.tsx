@@ -11,7 +11,9 @@ export default function Navbar() {
 
     const lenisRef = useLenis();
     const scrollTo = (id: string) => {
-        lenisRef.current?.scrollTo(`#${id}`);
+        lenisRef.current?.scrollTo(`#${id}`, {
+            offset: -window.innerHeight * 0.075,
+        });
     };
 
     return (

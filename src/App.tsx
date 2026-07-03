@@ -74,12 +74,14 @@ function App() {
                             <Navbar />
                             <ParticleBackground />
 
-                            <Home />
-                            <About />
-                            <Education />
-                            <Skills />
-                            <Resume />
-                            <Contact sx={{ minHeight: '100vh', height: '100vh', pb: 50 }} />
+                            <Box sx={{ pt: "7.5vh", pb: "20vh" }}>
+                                <Home />
+                                <About />
+                                <Education />
+                                <Skills />
+                                <Resume />
+                                <Contact />
+                            </Box>
                         </Box>
                     </Box>
 

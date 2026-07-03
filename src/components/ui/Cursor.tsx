@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import { Position } from "../../types/Position";
 
 export default function Cursor() {
+
+    const theme = useTheme();
 
     const [position, setPosition] = useState<Position>({x: 0, y: 0})
 
@@ -21,9 +23,9 @@ export default function Cursor() {
                 position: "fixed",
                 left: position.x,
                 top: position.y,
-                width: 12,
-                height: 12,
-                bgcolor: "white",
+                width: 20,
+                height: 20,
+                bgcolor: theme.palette.primary.main,
                 borderRadius: "50%",
                 transform: "translate(-50%, -50%)",
                 pointerEvents: "none",
