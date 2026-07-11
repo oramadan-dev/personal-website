@@ -1,14 +1,15 @@
 import Section from "./Section";
 import { Box, Typography } from "@mui/material";
+import { Header } from "../ui";
 
 export default function Home() {
 
     return (
         <Section id="home" nextSectionId="about" >
 
-            <Typography variant='h1' >
+            <Header variant="h1">
                 OMAR RAMADAN
-            </Typography>
+            </Header>
 
             <Typography variant="h6" sx={{ ml: 1 }}>
                 Full Stack Engineer

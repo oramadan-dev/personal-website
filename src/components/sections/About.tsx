@@ -1,23 +1,30 @@
 import Section from "./Section";
 import { Box, Typography } from "@mui/material";
+import { Header } from "../ui";
 
 export default function About() {
 
     return (
-        <Section id="about" nextSectionId="education">
+        <Section id="about" nextSectionId="stack">
 
-            <Typography variant='h1' >
+            <Header variant="h1">
                 ABOUT
-            </Typography>
-
-            <Typography variant="h6" sx={{ ml: 1 }}>
-                This is a placeholder
-            </Typography>
+            </Header>
 
 
             <Box sx={{ width: '100%', maxWidth: '30vw', minWidth: 500, ml: 1, mt: 3 }}>
                 <Typography variant="body1" >
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    My current work focuses on developing internal tools and data-driven systems
+                    that support the management and distribution of mission-critical data. I
+                    enjoy working across the entire stack—from designing backend services and
+                    APIs to building responsive user interfaces that are deployed across
+                    multiple environments.
+                    <br />
+                    <br />
+                    I'm particularly interested in building software that is reliable, maintainable,
+                    and easy to extend. Whether I'm designing a REST API, optimizing a database schema,
+                    or developing a React interface, I enjoy creating solutions that are both intuitive for users
+                    and straightforward for other developers to maintain.
                 </Typography>
             </Box>
 

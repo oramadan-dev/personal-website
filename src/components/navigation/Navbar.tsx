@@ -32,12 +32,8 @@ export default function Navbar() {
                         About
                     </Button>
 
-                    <Button onClick={() => scrollTo("education")}>
-                        Education
-                    </Button>
-
-                    <Button onClick={() => scrollTo("skills")}>
-                        Skills
+                    <Button onClick={() => scrollTo("stack")}>
+                        Stack
                     </Button>
 
                     <Button onClick={() => scrollTo("resume")}>

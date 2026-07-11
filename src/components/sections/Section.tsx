@@ -32,6 +32,7 @@ export default function Section({
             component="section"
             sx={[
                 {
+                    pl: 5,
                     scrollMarginTop: "64px",
                     minHeight: "75vh",
                     height: "75vh",

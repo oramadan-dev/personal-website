@@ -2,7 +2,6 @@ import { Navbar } from "./components/navigation";
 import {
     Home,
     About,
-    Education,
     Skills,
     Resume,
     Contact,
@@ -76,7 +75,6 @@ function App() {
                             <Box sx={{ pt: "7.5vh", pb: "20vh" }}>
                                 <Home />
                                 <About />
-                                <Education />
                                 <Skills />
                                 <Resume />
                                 <Contact />
