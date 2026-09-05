@@ -51,7 +51,7 @@ function App() {
     return (
         <LenisContext.Provider value={lenisRef}>
             <ScrollContext.Provider value={scrollRef}>
-                <Box sx={{ height: "100vh", position: "relative" }}>
+                <Box sx={{ height: "100dvh", position: "relative" }}>
                     <Box
                         ref={scrollRef}
                         sx={{
@@ -72,7 +72,7 @@ function App() {
                             <Navbar />
                             <ParticleBackground />
 
-                            <Box sx={{ pt: "7.5vh", pb: "20vh" }}>
+                            <Box sx={{ pt: { xs: 3, md: "7.5vh" }, pb: { xs: 8, md: "20vh" } }}>
                                 <Home />
                                 <About />
                                 <Skills />

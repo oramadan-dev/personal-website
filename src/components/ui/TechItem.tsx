@@ -12,7 +12,8 @@ export default function TechItem({ tech }: { tech: Tech }) {
             spacing={1.25}
             sx={{
                 alignItems: "center",
-                minWidth: 220,
+                minWidth: { xs: "calc(50% - 8px)", sm: 220 },
+                maxWidth: "100%",
                 cursor: "default",
                 transformOrigin: "left center",
                 transition: "transform 0.2s ease",
@@ -33,7 +34,7 @@ export default function TechItem({ tech }: { tech: Tech }) {
             <Box
                 className="tech-icon"
                 sx={{
-                    fontSize: 28,
+                    fontSize: { xs: 24, md: 28 },
                     display: "flex",
                     alignItems: "center",
                     color: "text.secondary",
@@ -47,6 +48,7 @@ export default function TechItem({ tech }: { tech: Tech }) {
                 className="tech-text"
                 sx={{
                     transition: "color 0.2s ease",
+                    overflowWrap: "anywhere",
                 }}
             >
                 {tech.name}

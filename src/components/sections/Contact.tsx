@@ -1,13 +1,12 @@
 import Section from "./Section";
 import {
-    Box,
     Link,
     Stack as MuiStack,
     Typography,
     SxProps,
 } from "@mui/material";
 import { Header } from "../ui";
-import { MdEmail, MdPhone } from "react-icons/md";
+import { MdEmail } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export interface ContactProps {
@@ -30,19 +29,36 @@ export default function Contact({ sx }: ContactProps) {
                     mx: "auto",
                 }}
             >
-                <MuiStack direction="row" spacing={2} sx={{ alignItems: "center" }}>
+                <MuiStack
+                    direction="row"
+                    spacing={2}
+                    sx={{
+                        alignItems: "center",
+                        flexWrap: "wrap",
+                        rowGap: 0.5,
+                    }}
+                >
                     <MdEmail size={24} />
                     <Typography sx={{ fontWeight: 600 }}>Email:</Typography>
                     <Link
                         href="mailto:oramadan2001@gmail.com"
                         underline="hover"
                         color="inherit"
+                        sx={{ overflowWrap: "anywhere" }}
                     >
                         oramadan2001@gmail.com
                     </Link>
                 </MuiStack>
 
-                <MuiStack direction="row" spacing={2} sx={{ alignItems: "center" }}>
+                <MuiStack
+                    direction="row"
+                    spacing={2}
+                    sx={{
+                        alignItems: "center",
+                        flexWrap: "wrap",
+                        rowGap: 0.5,
+                    }}
+                >
                     <FaLinkedin size={22} />
                     <Typography sx={{ fontWeight: 600 }}>LinkedIn:</Typography>
                     <Link
@@ -50,12 +66,21 @@ export default function Contact({ sx }: ContactProps) {
                         target="_blank"
                         rel="noopener noreferrer"
                         underline="hover"
+                        sx={{ overflowWrap: "anywhere" }}
                     >
                         linkedin.com/in/omar-ramadan-3822b7179
                     </Link>
                 </MuiStack>
 
-                <MuiStack direction="row" spacing={2} sx={{ alignItems: "center" }}>
+                <MuiStack
+                    direction="row"
+                    spacing={2}
+                    sx={{
+                        alignItems: "center",
+                        flexWrap: "wrap",
+                        rowGap: 0.5,
+                    }}
+                >
                     <FaGithub size={22} />
                     <Typography sx={{ fontWeight: 600 }}>GitHub:</Typography>
                     <Link
@@ -63,6 +88,7 @@ export default function Contact({ sx }: ContactProps) {
                         target="_blank"
                         rel="noopener noreferrer"
                         underline="hover"
+                        sx={{ overflowWrap: "anywhere" }}
                     >
                         github.com/oramadan-dev
                     </Link>

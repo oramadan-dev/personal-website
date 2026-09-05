@@ -30,6 +30,10 @@ export default function Cursor() {
                 transform: "translate(-50%, -50%)",
                 pointerEvents: "none",
                 zIndex: 99999,
+
+                "@media (pointer: coarse)": {
+                    display: "none",
+                },
             }}
         />
     );

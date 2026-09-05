@@ -18,12 +18,40 @@ export default function Navbar() {
 
     return (
         <AppBar position="sticky" elevation={0} sx={{ borderBottom: 'none', bgcolor: 'background.paper' }}>
-            <Toolbar>
-                <Typography variant="h6" sx={{ flexGrow: 1, color: "white" }} onClick={() => scrollTo("home")}>
+            <Toolbar
+                sx={{
+                    gap: { xs: 1.25, md: 2 },
+                    flexWrap: { xs: "wrap", md: "nowrap" },
+                    alignItems: "center",
+                    py: { xs: 1, md: 0 },
+                }}
+            >
+                <Typography
+                    variant="h6"
+                    sx={{
+                        flexGrow: 1,
+                        color: "white",
+                        minWidth: { xs: "100%", sm: "auto" },
+                        fontSize: { xs: "1rem", sm: "1.1rem", md: "1.3rem" },
+                    }}
+                    onClick={() => scrollTo("home")}
+                >
                     Omar Ramadan | Portfolio
                 </Typography>
 
-                <Box>
+                <Box
+                    sx={{
+                        display: "flex",
+                        gap: { xs: 0.25, sm: 0.5 },
+                        overflowX: "auto",
+                        width: { xs: "100%", sm: "auto" },
+                        pb: { xs: 0.25, sm: 0 },
+                        scrollbarWidth: "none",
+                        "&::-webkit-scrollbar": {
+                            display: "none",
+                        },
+                    }}
+                >
                     <Button onClick={() => scrollTo("home")}>
                         Home
                     </Button>

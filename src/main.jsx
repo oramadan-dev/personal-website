@@ -4,7 +4,6 @@ import App from './App.tsx'
 import {CssBaseline, ThemeProvider} from "@mui/material";
 import theme from "./theme/theme.ts";
 import Cursor from "./components/ui/Cursor.tsx";
-import Scrollbar from "./components/ui/Scrollbar.tsx";
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

@@ -11,12 +11,20 @@ export default function Home() {
                 OMAR RAMADAN
             </Header>
 
-            <Typography variant="h6" sx={{ ml: 1 }}>
+            <Typography variant="h6" sx={{ ml: { xs: 0, md: 1 } }}>
                 Full Stack Engineer
             </Typography>
 
 
-            <Box sx={{ width: '100%', maxWidth: '30vw', minWidth: 500, ml: 1, mt: 3 }}>
+            <Box
+                sx={{
+                    width: "100%",
+                    maxWidth: { xs: "100%", md: "30vw" },
+                    minWidth: { xs: 0, md: 500 },
+                    ml: { xs: 0, md: 1 },
+                    mt: 3,
+                }}
+            >
                 <Typography variant="body1" >
                     Hello! I'm Omar.
                     <br />

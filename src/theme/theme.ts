@@ -57,7 +57,7 @@ const theme = createTheme({
         h1: {
             fontSize: "4rem",
             fontWeight: 700,
-            letterSpacing: "-0.05em",
+            letterSpacing: 0,
         },
 
         h2: {
@@ -135,6 +135,12 @@ const theme = createTheme({
                     WebkitUserSelect: "none",
                     MozUserSelect: "none",
                     msUserSelect: "none",
+                },
+
+                "@media (pointer: coarse)": {
+                    "*": {
+                        cursor: "auto !important",
+                    },
                 }
             },
         },
@@ -212,7 +218,7 @@ const theme = createTheme({
                 h1: {
                     fontSize: "5.5rem",
                     fontWeight: 700,
-                    letterSpacing: "-0.05em",
+                    letterSpacing: 0,
 
                     transformOrigin: "left center",
                     transition: "transform 0.2s ease, color 0.2s ease",
@@ -221,6 +227,20 @@ const theme = createTheme({
                     "&:hover": {
                         color: "#9c6bff",
                         transform: "scale(1.05)",
+                    },
+
+                    "@media (max-width: 899.95px)": {
+                        fontSize: "3.5rem",
+                    },
+
+                    "@media (max-width: 599.95px)": {
+                        fontSize: "2.65rem",
+                    },
+
+                    "@media (hover: none)": {
+                        "&:hover": {
+                            transform: "none",
+                        },
                     },
                 },
 
@@ -236,6 +256,16 @@ const theme = createTheme({
                         color: "#9c6bff",
                         transform: "scale(1.05)",
                     },
+
+                    "@media (max-width: 599.95px)": {
+                        fontSize: "2.25rem",
+                    },
+
+                    "@media (hover: none)": {
+                        "&:hover": {
+                            transform: "none",
+                        },
+                    },
                 },
 
                 h3: {
@@ -249,6 +279,16 @@ const theme = createTheme({
                     "&:hover": {
                         color: "#9c6bff",
                         transform: "scale(1.05)",
+                    },
+
+                    "@media (max-width: 599.95px)": {
+                        fontSize: "1.6rem",
+                    },
+
+                    "@media (hover: none)": {
+                        "&:hover": {
+                            transform: "none",
+                        },
                     },
                 },
 
@@ -297,12 +337,21 @@ const theme = createTheme({
                 body1: {
                     fontSize: "1.25rem",
                     lineHeight: 1.8,
+
+                    "@media (max-width: 599.95px)": {
+                        fontSize: "1rem",
+                        lineHeight: 1.7,
+                    },
                 },
 
                 body2: {
                     fontSize: "1.125rem",
                     lineHeight: 1.7,
                     color: "#9CA3AF",
+
+                    "@media (max-width: 599.95px)": {
+                        fontSize: "0.95rem",
+                    },
                 },
 
             },

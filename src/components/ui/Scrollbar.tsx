@@ -38,6 +38,7 @@ export default function Scrollbar({ scrollRef } : CustomScrollbarProps) {
                 width: 6,
                 bgcolor: '#222',
                 borderRadius: 3,
+                display: { xs: 'none', md: 'block' },
             }}
         >
             <Box

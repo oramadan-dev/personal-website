@@ -32,14 +32,15 @@ export default function Section({
             component="section"
             sx={[
                 {
-                    pl: 5,
+                    px: { xs: 2.5, sm: 4, md: 5 },
+                    py: { xs: 8, md: 0 },
                     scrollMarginTop: "64px",
-                    minHeight: "75vh",
-                    height: "75vh",
+                    minHeight: { xs: "auto", md: "75vh" },
+                    height: { xs: "auto", md: "75vh" },
 
                     display: "flex",
                     justifyContent: "center",
-                    alignItems: "center",
+                    alignItems: { xs: "flex-start", md: "center" },
                 },
                 ...(Array.isArray(sx) ? sx : sx ? [sx] : []),
             ]}
@@ -52,9 +53,18 @@ export default function Section({
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
+                    width: "100%",
+                    maxWidth: "100%",
                 }}
             >
-                <Box>
+                <Box
+                    sx={{
+                        width: "100%",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                    }}
+                >
                     {children}
                 </Box>
 
@@ -64,8 +74,9 @@ export default function Section({
                             offset: -window.innerHeight * 0.075,
                         })}
                         sx={{
-                            mt: 8,
-                            fontSize: 75,
+                            mt: { xs: 5, md: 8 },
+                            alignSelf: "center",
+                            fontSize: { xs: 52, md: 75 },
                             color: "text.secondary",
                             cursor: "pointer",
                             animation: `${bounce} 2s infinite`,

@@ -67,10 +67,10 @@ export default function Stack() {
 
             <Box
                 sx={{
-                    mt: 6,
+                    mt: { xs: 4, md: 6 },
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: 10,
+                    gap: { xs: 5, md: 10 },
                     width: '100%',
                     maxWidth: 1300,
                     mx: 'auto'
@@ -81,8 +81,8 @@ export default function Stack() {
                         key={category}
                         sx={{
                             display: 'grid',
-                            gridTemplateColumns: '220px 1fr',
-                            gap: 25,
+                            gridTemplateColumns: { xs: '1fr', md: '220px 1fr' },
+                            gap: { xs: 2, md: 25 },
                             alignItems: 'start',
                         }}
                     >
@@ -90,7 +90,7 @@ export default function Stack() {
                             variant="h3"
                             sx={{
                                 color: 'text.primary',
-                                letterSpacing: 2,
+                                letterSpacing: { xs: 1, md: 2 },
                             }}
                         >
                             {category.toUpperCase()}
@@ -100,7 +100,7 @@ export default function Stack() {
                             sx={{
                                 display: 'flex',
                                 flexWrap: 'wrap',
-                                gap: 3,
+                                gap: { xs: 2, sm: 3 },
                             }}
                         >
                             {tech.map((t) => (
