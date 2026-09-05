@@ -2,7 +2,8 @@ import { RefObject, useEffect, useState } from "react";
 
 export function useSectionFade(
     scrollRef: RefObject<HTMLDivElement | null>,
-    sectionRef: RefObject<HTMLDivElement | null>
+    sectionRef: RefObject<HTMLDivElement | null>,
+    enabled = true,
 ) {
 
     const fadeRate = 3;
@@ -10,6 +11,10 @@ export function useSectionFade(
     const [opacity, setOpacity] = useState(0);
 
     useEffect(() => {
+        if (!enabled) {
+            return;
+        }
+
         const wrapper = scrollRef.current;
         const section = sectionRef.current;
         if (!wrapper || !section) return;
@@ -36,7 +41,7 @@ export function useSectionFade(
 
         wrapper.addEventListener("scroll", onScroll);
         return () => wrapper.removeEventListener("scroll", onScroll);
-    }, [scrollRef, sectionRef]);
+    }, [scrollRef, sectionRef, enabled]);
 
-    return opacity;
+    return enabled ? opacity : 1;
 }

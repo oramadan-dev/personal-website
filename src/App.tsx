@@ -8,13 +8,15 @@ import {
 } from "./components/sections";
 import { ScrollContext, LenisContext } from "./context";
 
-import { Box } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { useEffect, useRef } from "react";
 import Scrollbar from "./components/ui/Scrollbar";
 import ParticleBackground from "./components/ui/ParticleBackground";
 import Lenis from "lenis";
 
 function App() {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const scrollRef = useRef<HTMLDivElement>(null);
     const lenisRef = useRef<Lenis | null>(null);
 

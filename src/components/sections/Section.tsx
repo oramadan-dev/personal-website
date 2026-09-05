@@ -1,5 +1,5 @@
 import { useRef, type ReactNode } from "react";
-import { Box, type SxProps } from "@mui/material";
+import { Box, type SxProps, useMediaQuery, useTheme } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import { useSectionFade } from "../../hooks/useSectionFade";
@@ -19,11 +19,13 @@ export default function Section({
     children,
     sx,
 }: SectionProps) {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const scrollRef = useScrollRef();
     const lenisRef = useLenis();
 
     const sectionRef = useRef<HTMLDivElement>(null);
-    const opacity = useSectionFade(scrollRef, sectionRef);
+    const opacity = useSectionFade(scrollRef, sectionRef, !isMobile);
 
     return (
         <Box
@@ -48,7 +50,7 @@ export default function Section({
             <Box
                 sx={{
                     opacity,
-                    transition: "opacity 50ms linear",
+                    transition: isMobile ? "none" : "opacity 50ms linear",
 
                     display: "flex",
                     flexDirection: "column",
