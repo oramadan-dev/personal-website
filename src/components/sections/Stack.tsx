@@ -4,7 +4,7 @@ import {
     Typography,
 } from '@mui/material';
 import { Header } from '../ui';
-import { FaDatabase, FaJava } from 'react-icons/fa';
+import { FaDatabase, FaJava, FaTerminal } from 'react-icons/fa';
 import {
     SiDocker,
     SiGit,
@@ -49,7 +49,8 @@ const STACK: Record<string, Tech[]> = {
     Tools: [
         { name: 'Git', icon: <SiGit /> },
         { name: 'Postman', icon: <SiPostman /> },
-        { name: 'IntelliJ', icon: <SiIntellijidea /> }
+        { name: 'IntelliJ', icon: <SiIntellijidea /> },
+        { name: 'OpenAI Codex', icon: <FaTerminal /> },
     ],
 
     Infrastructure: [
@@ -57,7 +58,8 @@ const STACK: Record<string, Tech[]> = {
         { name: 'Kubernetes', icon: <SiKubernetes /> },
         { name: 'GitLab CI/CD', icon: <SiGitlab /> },
         { name: 'Jenkins', icon: <SiJenkins /> },
-    ]
+    ],
+
 };
 
 export default function Stack() {

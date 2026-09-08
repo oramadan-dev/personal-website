@@ -68,6 +68,10 @@ export default function Navbar() {
                         Resume
                     </Button>
 
+                    <Button onClick={() => scrollTo("projects")}>
+                        Projects
+                    </Button>
+
                     <Button onClick={() => scrollTo("contact")}>
                         Contact
                     </Button>

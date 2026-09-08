@@ -31,7 +31,7 @@ export default function Resume() {
     }, []);
 
     return (
-        <Section id="resume" nextSectionId="contact" >
+        <Section id="resume" nextSectionId="projects" >
             <Header variant="h1" sx={{ mt: 15 }}>
                 RESUME
             </Header>

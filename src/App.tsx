@@ -4,6 +4,7 @@ import {
     About,
     Skills,
     Resume,
+    Projects,
     Contact,
 } from "./components/sections";
 import { ScrollContext, LenisContext } from "./context";
@@ -79,6 +80,7 @@ function App() {
                                 <About />
                                 <Skills />
                                 <Resume />
+                                <Projects />
                                 <Contact />
                             </Box>
                         </Box>
